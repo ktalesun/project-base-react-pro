@@ -1,6 +1,7 @@
 import { lazy } from "react";
 // import { LazyPage1, LazyPage2, LazyPage3 } from "../01-lazyload/pages";
 import { Route } from "./interfaceRoute";
+import { NoLazy } from "../01-lazyload/pages/NoLazy";
 
 
 /**
@@ -8,29 +9,23 @@ import { Route } from "./interfaceRoute";
  * el cual se quiere que se cargue de forma diferida a través de una importación
  * NOTA: Para que el Lazy pueda funcionar el componente que se quiere cargar debe ser exportado por defecto
  * o tener una exportación por defecto
+ * Esta es un componente que está siendo cargado en forma perezosa
+ * que tiene rutas hijas pero estas cargan de forma normal (no diferida)
  */
-const lazy1 = lazy(() => import('../01-lazyload/pages/LazyPage1'))
-const lazy2 = lazy(() => import('../01-lazyload/pages/LazyPage2'))
-const lazy3 = lazy(() => import('../01-lazyload/pages/LazyPage3'))
+const lazyLayout = lazy(() => import('../01-lazyload/layout/LazyLayout'))
 
 
 export const routes: Route[] = [
     {
-        to: '/lazy1',
-        path: 'lazy1',
-        Component: lazy1,
-        name: 'Lazy-1'
+        to: '/lazyload/',
+        path: '/lazyload/*',
+        Component: lazyLayout,
+        name: 'LazyLayout-Dash'
     },
     {
-        to: '/lazy2',
-        path: 'lazy2',
-        Component: lazy2,
-        name: 'Lazy-2'
-    },
-    {
-        to: '/lazy3',
-        path: 'lazy3',
-        Component: lazy3,
-        name: 'Lazy-3'
+        to: '/no-lazy',
+        path: 'no-lazy',
+        Component: NoLazy,
+        name: 'No Lazy'
     }
 ]
