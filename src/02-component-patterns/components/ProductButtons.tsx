@@ -1,7 +1,8 @@
 import { useContext } from "react"
 
 import styles from "../styles/styles.module.css";
-import { contextProduct } from "./ProductCard";
+import { contextProduct } from "../context/ProductContext";
+
 
 
 export const ProductButtons = () => {

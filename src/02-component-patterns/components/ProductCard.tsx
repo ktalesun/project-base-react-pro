@@ -1,21 +1,17 @@
 
 
-import { createContext } from "react";
 import { useProduct } from "../hooks/useProduct";
-import { ContextProductProps, Props } from "../interfaces/interfaces";
+import { Props } from "../interfaces/interfaces";
 
 import styles from "../styles/styles.module.css";
+import { contextProduct } from "../context/ProductContext";
 
-
-export const contextProduct = createContext({} as ContextProductProps)
 const { Provider } = contextProduct
 
 
 //Primer paso del compount component pattern
 
 export const ProductCard = ({ product, children }: Props) => {
-
-    
 
     const {counter, increaseBy} = useProduct()
 
