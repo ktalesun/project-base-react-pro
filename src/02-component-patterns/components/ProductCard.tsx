@@ -11,7 +11,7 @@ const { Provider } = contextProduct
 
 //Primer paso del compount component pattern
 
-export const ProductCard = ({ product, children }: Props) => {
+export const ProductCard = ({ product, children, className, style }: Props) => {
 
     const {counter, increaseBy} = useProduct()
 
@@ -21,11 +21,11 @@ export const ProductCard = ({ product, children }: Props) => {
             increaseBy,
             product
         }} >
-            <div className={styles.productCard}>
+            <div 
+                className={`${styles.productCard} ${className} `}
+                style={style}
+            >
                 {children}
-                {/* <ProductImage img={product.img} />
-                <ProductTitle title={product.title} />
-                <ProductButtons counter={counter} increaseBy={increaseBy} /> */}
             </div>
         </Provider>
     

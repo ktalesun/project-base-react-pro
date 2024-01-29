@@ -11,6 +11,8 @@ const product2 = {
   img: 'public/coffee-mug.png'
 }
 
+import '../styles/custom-styles.css'
+
 
 export const ShoppingPage = () => {
   return (
@@ -23,31 +25,24 @@ export const ShoppingPage = () => {
           flexWrap: 'wrap'
         }}>
 
-        {/* <ProductCard product={product}/>
-        <ProductCard product={product2}/> */}
-        
-        {/* Primera forma de compount component pattern */}
-        {/* <ProductCard product={product2}>
-          <ProductImage />
-          <ProductTitle title={product2.title} />
-          <ProductButtons counter={0} increaseBy={function (value: number): void {
-            throw new Error("Function not implemented.")
-          } } />
-        </ProductCard> */}
-
-
         {/* Segunda forma del compount component pattern.  */}
         {/* Bajo esta construcción de componente, ambas formas son válidas */}
-        <ProductCard product={product2}>
-          <ProductCard.Image />
-          <ProductCard.Title title="Hello" />
-          <ProductCard.Buttons />
+        <ProductCard className="bg-dark text-white" product={product2} >
+          <ProductCard.Image className="custom-image" />
+          <ProductCard.Title title="Hello" className="text-white" />
+          <ProductCard.Buttons className="custom-bottom" />
+        </ProductCard>
+
+        <ProductCard className="bg-dark text-white" product={product}>
+          <ProductImage  className="custom-image"/>
+          <ProductTitle />
+          <ProductButtons className="custom-bottom"/>
         </ProductCard>
 
         <ProductCard product={product}>
           <ProductImage />
           <ProductTitle />
-          <ProductButtons />
+          <ProductButtons style={{backgroundColor: 'lemonchiffon'}}/>
         </ProductCard>
 
         </div>
